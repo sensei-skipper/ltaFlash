@@ -2,8 +2,6 @@ import ltaFlash
 import json
 import sys
 
-
-
 # LTA number and port info
 id_num = sys.argv[1] if len(sys.argv) > 1 else input("What is the LTA #? ")
 port = sys.argv[2] if len(sys.argv) >2 else '/dev/ttyUSB0'
@@ -11,10 +9,12 @@ port = sys.argv[2] if len(sys.argv) >2 else '/dev/ttyUSB0'
 id_num = int(id_num)
 id_num = f"{id_num:#0{6}x}".upper()
 
+
 # read data from json
 with open('flashInfo.json', 'r') as json_file:
   data = json_file.read()
   info = json.loads(data)
+
 
 
 # open connection to LTA
