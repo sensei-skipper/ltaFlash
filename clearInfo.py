@@ -1,9 +1,8 @@
 import ltaFlash
 import sys
 
-port = sys.argv[2] if len(sys.argv) >2 else '/dev/ttyUSB0'
 # open connection to LTA
-lta = ltaFlash.ltaFlash(port)
+lta = ltaFlash.ltaFlash()
 lta.checkPassword()
 
 lta.flashInfo()

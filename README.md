@@ -13,11 +13,7 @@ For example, if you wanted to load the info for lta called SKIPPER 14
 foo@bar:~$ sudo python3.7 ltaLoadFlash.py 14
 ```
 
-By default, the program assumes you are plugged into '/dev/ttyUSB0'. If using a different port (i.e. port 2)
-```console
-foo@bar:~$ sudo python3.7 ltaLoadFlash.py 14 /dev/ttyUSB1
-```
 NOTE: If info was already flashed to lta, you must erase the it before putting new info on
 ```console
-foo@bar:~$ sudo python3.7 cleaerInfo.py 14 /dev/ttyUSB1
+foo@bar:~$ sudo python3.7 cleaerInfo.py 14
 ```
