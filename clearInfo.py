@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import ltaFlash
 import sys
 
@@ -8,9 +9,7 @@ lta.checkPassword()
 lta.flashInfo()
 
 #Erase data
-for i in range(67108608,67108654):
-	lta.eraseAddr(i)
-
+lta.eraseAddr(0x3FFFF00)
 
 lta.flashInfo()
 lta.close()

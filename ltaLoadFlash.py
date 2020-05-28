@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import ltaFlash
 import json
 import sys
@@ -6,7 +7,7 @@ import sys
 id_num = sys.argv[1] if len(sys.argv) > 1 else input("What is the LTA #? ")
 
 id_num = int(id_num)
-id_num = f"{id_num:#0{6}x}".upper()
+id_num = "{0:#06x}".format(id_num)
 
 
 # read data from json
