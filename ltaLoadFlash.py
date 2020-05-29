@@ -51,7 +51,10 @@ lta.write('0x03FFFF1C', 8, '0x'+info["Software"]["hash"][8:])
 lta.write('0x03FFFF20', 8, info["Unique ID"]+id_num[2:])
 
 ip = info["Board IP"]
-ip_dec = (int(ip[0:3]) << 24) + (int(ip[4:7]) << 16) + (int(ip[8:11]) << 8) + int(ip[12:])
+ip_dec = 0
+for word in ip.split("."):
+    ip_dec <<= 8
+    ip_dec += int(word)
 lta.write('0x03FFFF24', 8, ip_dec)
 
 lta.flashInfo()
