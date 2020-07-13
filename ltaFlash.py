@@ -31,10 +31,12 @@ class ltaFlash:
         """ Send Command to flash and return output """
         cmd = cmd + '\r'
         cmd = cmd.encode()
+        print cmd
 
         self.com.write(cmd)
         time.sleep(1)
         out = self.com.read(self.com.inWaiting())
+        print out
         
         return out.decode()
 
@@ -62,8 +64,9 @@ class ltaFlash:
         """ Read value at certain address for <n> bytes """
         """ returns the hexadecimal value """
         if isinstance(addr, int):
-            # convert to hexidecimal
-            addr = f"{addr:#0{10}x}"
+            # convert to hexadecimal
+            #addr = f"{addr:#0{10}x}"
+            addr = "{0:#010x}".format(addr)
 
         cmd = "read {0} {1}".format(addr, n)
         out = self.send(cmd)
@@ -89,7 +92,8 @@ class ltaFlash:
     def write(self, addr, n, value):
         """ write <value> of size <n> to <addr> """
         if isinstance(addr, int):
-            addr = f"{addr:#0{10}x}" #hexadecimal form
+            #addr = f"{addr:#0{10}x}" #hexadecimal form
+            addr = "{0:#010x}".format(addr)
 
         if n==1:
             n='byte'
@@ -102,14 +106,14 @@ class ltaFlash:
             sys.exit()
 
         cmd = "write {0} {1} {2}".format(n, addr, value)
-        print(cmd)
         self.send(cmd)
 
 
     def eraseAddr(self, addr):
         """ Erase 4kb adress """
         if isinstance(addr, int):
-            addr = f"{addr:#0{10}x}"
+            #addr = f"{addr:#0{10}x}"
+            addr = "{0:#010x}".format(addr)
 
         self.send("erase "+addr)
 
