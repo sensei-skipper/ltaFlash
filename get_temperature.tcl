@@ -13,6 +13,6 @@ refresh_hw_sysmon  [get_hw_sysmons localhost:3121/xilinx_tcf/Digilent/*/xc7a200t
 #report_property  [get_hw_sysmons localhost:3121/xilinx_tcf/Digilent/*/xc7a200t_0/SYSMON]
 #get_property -verbose TEMPERATURE [get_hw_sysmons localhost:3121/xilinx_tcf/Digilent/*/xc7a200t_0/SYSMON]
 puts [get_property TEMPERATURE [get_hw_sysmons localhost:3121/xilinx_tcf/Digilent/*/xc7a200t_0/SYSMON]]
-after 100
+after 1000
 }
 exit
