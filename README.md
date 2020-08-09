@@ -5,15 +5,15 @@ Plugin micro-USB Cable to LTA and computer. On LTA, have switches 1 and 4 in the
 
 Adding to the flash is simple.
 ```console
-foo@bar:~$ sudo python3.7 ltaLoadFlash.py <lta number> 
+foo@bar:~$ sudo python ltaLoadFlash.py <json file> <lta number> 
 ``` 
 
 For example, if you wanted to load the info for lta called SKIPPER 14
 ```console
-foo@bar:~$ sudo python3.7 ltaLoadFlash.py 14
+foo@bar:~$ sudo python ltaLoadFlash.py flashInfo_v22.json 14
 ```
 
 NOTE: If info was already flashed to lta, you must erase the it before putting new info on
 ```console
-foo@bar:~$ sudo python3.7 cleaerInfo.py 14
+foo@bar:~$ sudo python cleaerInfo.py
 ```
