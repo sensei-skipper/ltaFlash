@@ -3,15 +3,23 @@ import ltaFlash
 import json
 import sys
 
-# LTA number and port info
+# load info from json file and user
+if len(sys.argv) < 3:
+    print('The scirpt should be called as:')
+    print('\tpython {0} <json file> <LTA #>'.format(sys.argv[0]))
+    print('i.e.\n\tpython {0} flashInfo_v22.json 42'.format(sys.argv[0]))
+    sys.exit()
+
+json_file_name = 'flashInfo.json'
 id_num = sys.argv[1] if len(sys.argv) > 1 else input("What is the LTA #? ")
 
+# LTA number
 id_num = int(id_num)
 id_num = "{0:#06x}".format(id_num)
 
 
 # read data from json
-with open('flashInfo.json', 'r') as json_file:
+with open(json_file_name, 'r') as json_file:
   data = json_file.read()
   info = json.loads(data)
 
