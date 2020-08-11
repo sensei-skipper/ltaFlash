@@ -32,8 +32,6 @@ lta.checkPassword()
 
 lta.flashInfo()
 
-lta.write('0x03FFFF05', 1, info["Firmware"]["date"]["day"])
-"""
 print('Writing new info to lta flash')
 
 lta.write('0x03FFFF00', 1, info["Firmware"]["version"]["minor"])
@@ -66,7 +64,6 @@ for word in ip.split("."):
     ip_dec <<= 8
     ip_dec += int(word)
 lta.write('0x03FFFF24', 8, ip_dec)
-"""
 lta.flashInfo()
 
 lta.close()
