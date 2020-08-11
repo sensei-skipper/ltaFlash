@@ -10,8 +10,8 @@ if len(sys.argv) < 3:
     print('i.e.\n\tpython {0} flashInfo_v22.json 42'.format(sys.argv[0]))
     sys.exit()
 
-json_file_name = 'flashInfo.json'
-id_num = sys.argv[1] if len(sys.argv) > 1 else input("What is the LTA #? ")
+json_file_name = sys.argv[1]
+id_num = sys.argv[2]
 
 # LTA number
 id_num = int(id_num)
@@ -32,6 +32,8 @@ lta.checkPassword()
 
 lta.flashInfo()
 
+lta.write('0x03FFFF05', 1, info["Firmware"]["date"]["day"])
+"""
 print('Writing new info to lta flash')
 
 lta.write('0x03FFFF00', 1, info["Firmware"]["version"]["minor"])
@@ -64,7 +66,7 @@ for word in ip.split("."):
     ip_dec <<= 8
     ip_dec += int(word)
 lta.write('0x03FFFF24', 8, ip_dec)
-
+"""
 lta.flashInfo()
 
 lta.close()
