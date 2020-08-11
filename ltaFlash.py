@@ -31,12 +31,12 @@ class ltaFlash:
         """ Send Command to flash and return output """
         cmd = cmd + '\r'
         cmd = cmd.encode()
-        print(cmd)
+        # print(cmd)
 
         self.com.write(cmd)
         time.sleep(1)
         out = self.com.read(self.com.inWaiting())
-        print(out)
+        # print(out)
         
         return out.decode()
 
