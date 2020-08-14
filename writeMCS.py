@@ -24,6 +24,8 @@ with open(json_file_name, 'r') as json_file:
   data = json_file.read()
   info = json.loads(data)
 
+#MCS file format taken from https://en.wikipedia.org/wiki/Intel_HEX and checked by comparing to the output of ltaDaemon/scripts/vivado/read_info.tcl
+
 def extendedLinearAddress(offset):
     d = struct.pack('>H', offset) #offset is big-endian
     return (0x04, d, 0x0)
@@ -61,16 +63,15 @@ with open(mcsFilename, 'w') as mcsFile:
         ip_dec <<= 8
         ip_dec += int(word)
     d = struct.pack('IIQ', int(info["Unique ID"]+id_num[2:],16), ip_dec, 0xFFFFFFFFFFFFFFFF)
-
     mcsFile.write(recordToString((0x00, d, 0x20)))
 
     currentAddr = 0x30
     lastAddr = 0xFE
     while lastAddr>currentAddr:
-        nextAddr = min(lastAddr, currentAddr+0xF)
-        d = ['\xFF' for i in range(currentAddr, nextAddr+1)]
+        nextAddr = min(lastAddr, currentAddr+0xF)+1
+        d = ['\xFF' for i in range(currentAddr, nextAddr)]
         mcsFile.write(recordToString((0x00, d, currentAddr)))
-        currentAddr = nextAddr+1
+        currentAddr = nextAddr
 
     mcsFile.write(recordToString(endOfFile()))
 
