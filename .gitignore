@@ -6,3 +6,5 @@ vivado/memory_info.mcs
 vivado/memory.mcs
 vivado/memory.prm
 
+*.log
+*.jou
