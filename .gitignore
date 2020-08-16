@@ -5,6 +5,7 @@ __pycache__/
 vivado/memory_info.mcs
 vivado/memory.mcs
 vivado/memory.prm
+vivado/.Xil/
 
 *.log
 *.jou
