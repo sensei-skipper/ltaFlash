@@ -52,14 +52,6 @@ def recordToString(record):
 with open(mcsFilename, 'w') as mcsFile:
     mcsFile.write(recordToString(extendedLinearAddress(0x03FF)))
 
-    currentAddr = 0x00
-    lastAddr = 0xFEFF
-    while lastAddr>currentAddr:
-        nextAddr = min(lastAddr, currentAddr+0xF)+1
-        d = ['\xFF' for i in range(currentAddr, nextAddr)]
-        mcsFile.write(recordToString((0x00, d, currentAddr)))
-        currentAddr = nextAddr
-
     d = struct.pack('BBHBBHII', info["Firmware"]["version"]["minor"], info["Firmware"]["version"]["major"], 0xFFFF, info["Firmware"]["date"]["month"], info["Firmware"]["date"]["day"], info["Firmware"]["date"]["year"], int(info["Firmware"]["hash"][:8],16), int(info["Firmware"]["hash"][8:],16))
     mcsFile.write(recordToString((0x00, d, 0xFF00)))
 
