@@ -9,7 +9,7 @@ fi
 start=$SECONDS
 
 # Generate memory_info.mcs file
-./../writeMCS.py ../flashInfo_v22.json ${1}
+./writeMCS.py ../flashInfo_v22.json ${1}
 
 # Write firmware and software to LTA
 vivado_lab -mode batch -source write_flash.tcl
