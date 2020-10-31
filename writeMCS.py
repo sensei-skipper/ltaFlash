@@ -35,14 +35,17 @@ def endOfFile():
 
 def recordToString(record):
     recordType = record[0]
-    dataList = record[1]
+    if sys.version_info.major>2:
+        dataList = record[1]
+    else:
+        dataList = map(ord,record[1])
     offset = record[2]
     dataLen = len(record[1])
     dataString = ""
-    checksum = dataLen + (offset % 256) + (offset / 256) + recordType
+    checksum = dataLen + (offset % 256) + (offset // 256) + recordType
     for dataByte in dataList:
-        dataString += ("%02X" % ord(dataByte))
-        checksum += ord(dataByte)
+        dataString += ("%02X" % dataByte)
+        checksum += dataByte
     checksum %= 256
     if checksum != 0:
         checksum = 256-checksum
@@ -69,10 +72,13 @@ with open(mcsFilename, 'w') as mcsFile:
     lastAddr = 0xFFFF
     while lastAddr>currentAddr:
         nextAddr = min(lastAddr, currentAddr+0xF)+1
-        d = ['\xFF' for i in range(currentAddr, nextAddr)]
+        if sys.version_info.major>2:
+            d = bytes.fromhex('F'*((nextAddr-currentAddr)*2))
+        else:
+            d = ['\xFF' for i in range(currentAddr, nextAddr)]
         mcsFile.write(recordToString((0x00, d, currentAddr)))
         currentAddr = nextAddr
 
     mcsFile.write(recordToString(endOfFile()))
 
-    print "wrote flash info to", mcsFilename
+    print("wrote flash info to", mcsFilename)
