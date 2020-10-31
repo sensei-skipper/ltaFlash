@@ -10,7 +10,7 @@ if len(sys.argv) < 3:
     print('i.e.\n\tpython {0} flashInfo_v22.json 42'.format(sys.argv[0]))
     sys.exit()
 
-mcsFilename = "memory.mcs"
+mcsFilename = "memory_info.mcs"
 
 json_file_name = sys.argv[1]
 id_num = sys.argv[2]
