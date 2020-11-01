@@ -1,2 +1,11 @@
 *.pyc
 __pycache__/
+*.swp
+
+vivado/memory_info.mcs
+vivado/memory.mcs
+vivado/memory.prm
+vivado/.Xil/
+
+*.log
+*.jou
