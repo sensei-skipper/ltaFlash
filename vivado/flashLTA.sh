@@ -15,7 +15,7 @@ start=$SECONDS
 vivado_lab -mode batch -source write_flash.tcl
 
 # write flash info to LTA
-vivado_lab -mode batch -source write_flash_info.tcl
+vivado_lab -mode batch -source write_flash.tcl -tclargs memory_info
 
 # Delete memory_info.mcs file
 rm memory_info.mcs
