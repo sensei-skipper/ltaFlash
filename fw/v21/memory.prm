@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX4
+Size               64M
+Start Address      0x00000000
+End Address        0x03FFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x004B7BEB    May 25 13:40:16 2020    /home/meeg/git/lta-v2-sskp-firmware/top/top.runs/impl_1/sys_wrapper.bit

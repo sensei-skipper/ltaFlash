@@ -34,7 +34,11 @@ foreach {target} [get_hw_targets] {
 
     boot_hw_device [current_hw_device]
     close_hw_target
-    exit
+    if { $argc > 0 } {
+        exit
+    }
 }
-puts "did not find the requested FPGA"
+if { $argc > 0 } {
+    puts "did not find the requested FPGA"
+}
 exit
