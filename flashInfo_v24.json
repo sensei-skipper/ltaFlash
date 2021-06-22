@@ -1,8 +1,8 @@
 {	
 	"Firmware": {
 		"version": {"major": 2, "minor": 4},
-		"date": {"month": 6, "day": 7, "year":2021},
-		"hash":"c997347d957022e2"
+		"date": {"month": 6, "day": 21, "year":2021},
+		"hash":"b69ec8362f6788b0"
 	},
 	"Software": {
 		"version": {"major": 2, "minor": 4},
