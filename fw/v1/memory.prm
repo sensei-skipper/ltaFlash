@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX4
+Size               64M
+Start Address      0x00000000
+End Address        0x03FFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x003E8B03    Mar 28 14:04:02 2019    C:/v18.2/lta-v2-system-firmware/top/top.runs/impl_1/sys_wrapper.bit
