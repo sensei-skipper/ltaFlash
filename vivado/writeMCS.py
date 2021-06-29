@@ -14,6 +14,10 @@ mcsFilename = "memory_info.mcs"
 
 json_file_name = sys.argv[1]
 id_num = sys.argv[2]
+special_ip=None
+if len(sys.argv)==4:
+    special_ip = sys.argv[3]
+    print("overriding IP in .json file")
 
 # LTA number
 id_num = int(id_num)
@@ -23,7 +27,11 @@ id_num = "{0:#06x}".format(id_num)
 with open(json_file_name, 'r') as json_file:
   data = json_file.read()
   info = json.loads(data)
+  if special_ip:
+      info['Board IP'] = special_ip
 
+print("will write IP:",info['Board IP'])
+print("LTA ID:",id_num)
 #MCS file format taken from https://en.wikipedia.org/wiki/Intel_HEX and checked by comparing to the output of ltaDaemon/scripts/vivado/read_info.tcl
 
 def extendedLinearAddress(offset):
