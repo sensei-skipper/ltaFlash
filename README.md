@@ -1,4 +1,4 @@
-# Tool to flash info onto the LTA v2
+# Tool to flash info and firmware onto the LTA v2
 The LTA has a flash memory that is divided into two regions (a firmware image and a "info" page) and two USB ports (mini-USB serial port and micro-USB JTAG port).
 
 The firmware image combines the FPGA firmware and the software that runs inside the FPGA (this is distinct from the "LTA daemon" that runs on the PC and communicates to the LTA).
@@ -40,23 +40,23 @@ Plug in micro-USB cable.
 Switch position does not matter.
 (This means that you can keep the cable connected and update the flash remotely.)
 
+Setup Vivado and move into the directory for the firmware you are using (or want to use):
 ```console
 foo@bar:~$ source ~/Soft/Xilinx/Vivado_Lab/2018.3/settings64.sh
 foo@bar:~$ cd fw/v24
-foo@bar:~$ source ../../vivado/write_fw.sh
-```
-
-Write the firmware image:
-```console
-foo@bar:~$ source ../../vivado/write_fw.sh
 ```
 
 Write the flash info (using whatever IP address is in the `flashInfo.json`) for LTA 14:
 ```console
-foo@bar:~$ source ../../vivado/write_fw.sh 14
+foo@bar:~$ ../../vivado/write_fw.sh 14
 ```
 
 Write the flash info (with IP address 192.168.133.3) for LTA 14:
 ```console
-foo@bar:~$ source ../../vivado/write_fw.sh 14 192.168.133.3
+foo@bar:~$ ../../vivado/write_fw.sh 14 192.168.133.3
+```
+
+Write the firmware image:
+```console
+foo@bar:~$ ../../vivado/write_fw.sh
 ```
