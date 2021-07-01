@@ -1,0 +1,14 @@
+{	
+	"Firmware": {
+		"version": {"major": 2, "minor": 0},
+		"date": {"month": 7, "day": 17, "year":2019},
+		"hash":"0CBE3071840262AD"
+	},
+	"Software": {
+		"version": {"major": 2, "minor": 0},
+		"date": {"month": 7, "day": 17, "year":2019},
+		"hash":"770747F2FE12370F"
+	},
+	"Unique ID": "0xAB02",
+	"Board IP" : "192.168.133.7"
+}

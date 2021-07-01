@@ -1,4 +1,5 @@
-#source this script from a directory that contains memory.mcs and memory.prm, e.g.:
+#source this script from a directory that contains memory.mcs (or memory.mcs.gz) and memory.prm, e.g.:
+#  cd fw/v24
 #  source ../../vivado/write_fw.sh
 #this will write the FW on all connected LTAs
 
@@ -13,6 +14,12 @@ else if command -v vivado &> /dev/null; then
 else
     vivadoname=""
 fi
+fi
+
+#if we have no .mcs file but we have the .mcs.gz
+#-k so we keep the compressed file (keeps git happy)
+if [ ! -e "memory.mcs" ] && [ -e "memory.mcs.gz" ]; then
+    gunzip -k memory.mcs.gz
 fi
 
 if [ "$vivadoname" ]; then
