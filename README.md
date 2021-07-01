@@ -2,13 +2,16 @@
 The LTA has a flash memory that is divided into two regions (a firmware image and a "info" page) and two USB ports (mini-USB serial port and micro-USB JTAG port).
 
 The firmware image combines the FPGA firmware and the software that runs inside the FPGA (this is distinct from the "LTA daemon" that runs on the PC and communicates to the LTA).
-The LTA's IP address is saved in the info page, along with the LTA number and firmware/software versions.
+The LTA's IP address is saved in the info page, along with the LTA number and firmware/software versions; the LTA prints the info when booting.
 The `fw` directory contains firmware images and the corresponding info page data.
 
 Serial port communication does not require additional software, just the scripts in this repo.
 JTAG communication requires Xilinx Vivado and cable drivers installed.
 
-You can update the flash info using either the serial or JTAG port. The firmware image can only be updated with JTAG.
+You can update the flash info using either the serial or JTAG port.
+The firmware image can only be updated with JTAG.
+
+*If you update the firmware, you should also update the info to match. This keeps it easy to see what firmware any LTA is running.*
 
 ## Using serial port to update flash info
 Edit the flashInfo.json file to edit info sent to the LTA flash (the IP is the only thing you might typically change).
@@ -48,15 +51,27 @@ foo@bar:~$ cd fw/v24
 
 Write the flash info (using whatever IP address is in the `flashInfo.json`) for LTA 14:
 ```console
-foo@bar:~$ ../../vivado/write_fw.sh 14
+foo@bar:~$ ../../vivado/write_info.sh 14
 ```
 
 Write the flash info (with IP address 192.168.133.3) for LTA 14:
 ```console
-foo@bar:~$ ../../vivado/write_fw.sh 14 192.168.133.3
+foo@bar:~$ ../../vivado/write_info.sh 14 192.168.133.3
 ```
 
 Write the firmware image:
 ```console
 foo@bar:~$ ../../vivado/write_fw.sh
 ```
+
+### Installing Vivado
+Lab Edition is recommended unless you plan to develop or compile firmware, but the full edition is fine.
+The version doesn't matter (scripts are tested on 2018.3).
+You can download it from the Xilinx website: https://www.xilinx.com/support/download.html
+
+After installing the software, you need to install the cable drivers separately:
+```console
+foo@bar:~$ cd ~/Soft/Xilinx/Vivado_Lab/2018.3/data/xicom/cable_drivers/lin64/install_script/install_drivers/
+foo@bar:~$ sudo ./install_drivers
+```
+
