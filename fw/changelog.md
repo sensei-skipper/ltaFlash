@@ -29,3 +29,11 @@ v24: 2021-06-21
 * fixes the clock bug in v23: no known issues or needed workarounds for single or multi-LTA
 * common 15 MHz clock for sequencer+ADC+CDS
 * sequencer microblaze runs faster (100 MHz up from 75)
+
+v25: 2022-01-06
+* this was SENSEI standard firmware
+* improved multi-LTA reliability - seems to work OK with VME adapters
+* fixes the VSUB-is-low-after-erase bug
+* user-configurable soak times for erase and e-purge
+* limited ramp rate on LDOs - reduces current spike from raising VSUB
+* slight sequencer speedup (branch predictor cache)
