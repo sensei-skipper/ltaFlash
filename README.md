@@ -43,23 +43,24 @@ Plug in micro-USB cable.
 Switch position does not matter.
 (This means that you can keep the cable connected and update the flash remotely.)
 
-Setup Vivado and move into the directory for the firmware you are using (or want to use):
+Setup Vivado (the path will depend on how your PC is set up) and move into the directory for the firmware you are using (or want to use):
 ```console
 foo@bar:~$ source ~/Soft/Xilinx/Vivado_Lab/2018.3/settings64.sh
 foo@bar:~$ cd fw/v24
 ```
 
-Write the flash info (using whatever IP address is in the `flashInfo.json`) for LTA 14:
+### Write the flash info
+You can use whatever IP address is in the `flashInfo,json`, or specify it on the command line.
+
+Both examples, for LTA 14:
 ```console
 foo@bar:~$ ../../vivado/write_info.sh 14
 ```
-
-Write the flash info (with IP address 192.168.133.3) for LTA 14:
 ```console
 foo@bar:~$ ../../vivado/write_info.sh 14 192.168.133.3
 ```
 
-Write the firmware image:
+### Write the firmware image
 ```console
 foo@bar:~$ ../../vivado/write_fw.sh
 ```
