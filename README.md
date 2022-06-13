@@ -16,7 +16,7 @@ The firmware image can only be updated with JTAG.
 ## Using serial port to update flash info
 Edit the flashInfo.json file to edit info sent to the LTA flash (the IP is the only thing you might typically change).
 
-Plug in mini-USB cable.
+Plug in mini-USB cable. This must be the only LTA with this cable connected.
 On LTA, have switches 1 and 4 in the ON position.
 All other switches should be in the off position.
 Power on.
@@ -39,7 +39,7 @@ foo@bar:~$ ./ltaLoadFlash.py fw/v24/flashInfo.json 14
 Remember to return the switches to normal position (switch 1 ON, switch 4 OFF).
 
 ## Using USB-JTAG to update firmware image or flash info
-Plug in micro-USB cable.
+Plug in micro-USB cable. If multiple LTAs are plugged in, they will all be programmed - this is generally fine for the firmware, but not for the flash info.
 Switch position does not matter.
 (This means that you can keep the cable connected and update the flash remotely.)
 
