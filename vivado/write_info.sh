@@ -24,6 +24,12 @@ fi
 #delete the existing memory_info.mcs, so we don't accidentally write a stale one
 rm -f memory_info.mcs memory_info.prm
 ln -s "$scriptdir"/memory_info.prm .
+if [[ "$#" -eq 0 ]]
+then
+    echo "must give LTA ID"
+    exit
+fi
+
 if [[ "$#" -eq 1 ]]
 then
     "$scriptdir"/writeMCS.py flashInfo.json "$1"
