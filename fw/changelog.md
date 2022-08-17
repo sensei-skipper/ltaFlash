@@ -37,3 +37,9 @@ v25: 2022-01-06
 * user-configurable soak times for erase and e-purge
 * limited ramp rate on LDOs - reduces current spike from raising VSUB
 * slight sequencer speedup (branch predictor cache)
+
+v26: 2022-08-16
+* this was SENSEI standard firmware
+* no changes to firmware
+* fix bug in LDO startup
+* erase has configurable clock voltage and offset
