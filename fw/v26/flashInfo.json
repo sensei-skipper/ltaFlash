@@ -1,13 +1,13 @@
 {	
 	"Firmware": {
 		"version": {"major": 2, "minor": 6},
-		"date": {"month": 8, "day": 16, "year":2022},
-		"hash":"3bf470334c32ec1d"
+		"date": {"month": 8, "day": 30, "year":2022},
+		"hash":"592023e02fd6d5ed"
 	},
 	"Software": {
 		"version": {"major": 2, "minor": 6},
-		"date": {"month": 8, "day": 16, "year":2022},
-		"hash":"5128bb2b3057847b"
+		"date": {"month": 8, "day": 30, "year":2022},
+		"hash":"fc413d2475068767"
 	},
 	"Unique ID": "0xAB02",
 	"Board IP" : "192.168.133.7"
