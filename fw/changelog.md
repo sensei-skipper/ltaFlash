@@ -38,8 +38,9 @@ v25: 2022-01-06
 * limited ramp rate on LDOs - reduces current spike from raising VSUB
 * slight sequencer speedup (branch predictor cache)
 
-v26: 2022-08-16
+v26: 2022-08-30
 * this was SENSEI standard firmware
 * no changes to firmware
-* fix bug in LDO startup
+* fix v25 bug in LDO startup
+* reduce spikes in 12V current during LDO initialization
 * erase has configurable clock voltage and offset
