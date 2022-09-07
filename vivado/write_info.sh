@@ -2,11 +2,10 @@
 
 #run this script from a directory that contains flashInfo.json
 #need 1, 2, or 3 arguments for LTA number and (optionally) IP and FPGA DNA, e.g.:
-#  ../../vivado/write_info.sh 12
-#  ../../vivado/write_info.sh 12 192.168.133.3
-#  ../../vivado/write_info.sh 12 192.168.133.3 2A12111E7221002B
-# the first 2 forms will write the flash info on all connected (USB-JTAG plugged in, and powered) LTAs
-# if you have multiple LTAs connected you must use the last form to specify which FPGA DNA you are configuring
+#  ../../vivado/write_info.sh 12 (write ID 12 and IP from JSON, to all connected LTAs)
+#  ../../vivado/write_info.sh 12 192.168.133.3 (write ID 12 and IP 192.168.133.3, to all connected LTAs)
+#  ../../vivado/write_info.sh 12 192.168.133.3 2A12111E7221002B (write ID 12 and IP 192.168.133.3, to LTA with FPGA DNA 2A12111E7221002B)
+#the first two forms will write the flash info on all connected (USB-JTAG plugged in, and powered) LTAs, so should only be used with a single LTA connected at a time
 
 #get the path to ltaFlash/vivado
 scriptdir=$(dirname "$0")

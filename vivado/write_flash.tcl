@@ -22,7 +22,7 @@ connect_hw_server
 
 foreach {target} [get_hw_targets] {
     current_hw_target $target
-    open_hw_target
+    open_hw_target -quiet
     current_hw_device [lindex [get_hw_devices] 0]
 
     if { $argc == 2 } {
@@ -54,7 +54,7 @@ foreach {target} [get_hw_targets] {
 
     boot_hw_device [current_hw_device]
 
-    close_hw_target
+    close_hw_target -quiet
 
     if { $argc == 2 } {
         exit
